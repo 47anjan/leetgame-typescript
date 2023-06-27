@@ -3,9 +3,9 @@ import ColorModeSwitch from "./ColorModeSwitch";
 
 const Navbar = () => {
   return (
-    <HStack padding="10px" justifyContent="space-between">
+    <HStack padding="10px">
       <Image
-        boxSize="60px"
+        boxSize={{ base: "50px", md: "60px" }}
         src="https://game-hub-phi.vercel.app/assets/logo-ff4914e6.webp"
       />
       <Text>Navbar</Text>
