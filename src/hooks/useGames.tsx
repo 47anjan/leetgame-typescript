@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient, { CanceledError } from "../services/api-client";
 
-interface Game {
+export interface Game {
   id: number;
   name: string;
   background_image: string;
@@ -9,7 +9,7 @@ interface Game {
   rating: number;
 }
 
-interface FectchGamesResponse {
+interface FetchGamesResponse {
   count: number;
   results: Game[];
 }
@@ -24,7 +24,7 @@ const useGames = () => {
 
     setLoading(true);
     apiClient
-      .get<FectchGamesResponse>("/games", { signal: controller.signal })
+      .get<FetchGamesResponse>("/games", { signal: controller.signal })
       .then(({ data }) => {
         setGames(data?.results);
         setLoading(false);
