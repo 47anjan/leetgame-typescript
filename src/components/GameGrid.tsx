@@ -3,8 +3,7 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../hooks/useGenres";
-import { Platform } from "../hooks/usePlatforms";
+
 import { GameQuery } from "../App";
 
 interface Props {
@@ -30,17 +29,11 @@ const GameGrid = ({ gameQuery }: Props) => {
               <GameCardSkeleton />
             </GameCardContainer>
           ))}
-        {data.length === 0 ? (
-          <Text paddingY={1} fontWeight={"semibold"} fontSize={"xl"}>
-            No games found!
-          </Text>
-        ) : (
-          data.map((game) => (
-            <GameCardContainer key={game.id}>
-              <GameCard game={game} />
-            </GameCardContainer>
-          ))
-        )}
+        {data.map((game) => (
+          <GameCardContainer key={game.id}>
+            <GameCard game={game} />
+          </GameCardContainer>
+        ))}
       </SimpleGrid>
     </>
   );
