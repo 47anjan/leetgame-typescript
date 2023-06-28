@@ -1,4 +1,4 @@
-import axios, { CanceledError } from "axios";
+import axios from "axios";
 
 export default axios.create({
   baseURL: "https://api.rawg.io/api",
@@ -6,5 +6,3 @@ export default axios.create({
     key: `${import.meta.env.VITE_API_KEY}`,
   },
 });
-
-export { CanceledError };

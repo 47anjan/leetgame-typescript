@@ -1,6 +1,6 @@
+import { AxiosRequestConfig, CanceledError } from "axios";
 import { useEffect, useState } from "react";
-import apiClient, { CanceledError } from "../services/api-client";
-import { AxiosRequestConfig } from "axios";
+import apiClient from "../services/api-client";
 
 interface FetchResponse<T> {
   count: number;
@@ -9,7 +9,7 @@ interface FetchResponse<T> {
 
 const useData = <T,>(
   endpoint: string,
-  requestCongfig?: AxiosRequestConfig,
+  requestConfig?: AxiosRequestConfig,
   deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
@@ -24,15 +24,16 @@ const useData = <T,>(
       apiClient
         .get<FetchResponse<T>>(endpoint, {
           signal: controller.signal,
-          ...requestCongfig,
+          ...requestConfig,
         })
-        .then(({ data }) => {
-          setData(data?.results);
+        .then((res) => {
+          setData(res.data.results);
           setLoading(false);
         })
-        .catch((error) => {
-          if (error instanceof CanceledError) return;
-          setError(error.message);
+        .catch((err) => {
+          if (err instanceof CanceledError) return;
+          setError(err.message);
+          setLoading(false);
         });
 
       return () => controller.abort();
@@ -42,4 +43,5 @@ const useData = <T,>(
 
   return { data, error, isLoading };
 };
+
 export default useData;
