@@ -1,4 +1,4 @@
-import { Icon, HStack, Text } from "@chakra-ui/react";
+import { Icon, HStack } from "@chakra-ui/react";
 import {
   FaXbox,
   FaWindows,

@@ -9,16 +9,16 @@ interface Props {
 const SearchInput = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (ref.current) {
-      const value = ref.current.value;
-      onSearch(value);
-    }
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (ref.current) {
+          const value = ref.current.value;
+          onSearch(value);
+        }
+      }}
+    >
       <InputGroup>
         <InputLeftElement children={<BsSearch />} />
         <Input
