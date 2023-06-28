@@ -1,5 +1,6 @@
 import { HStack, Image, Text } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
+import SearchInput from "./SearchInput";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,8 @@ const Navbar = () => {
         boxSize={{ base: "50px", md: "60px" }}
         src="https://game-hub-phi.vercel.app/assets/logo-ff4914e6.webp"
       />
-      <Text>Navbar</Text>
+
+      <SearchInput />
       <ColorModeSwitch />
     </HStack>
   );
