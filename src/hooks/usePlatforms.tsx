@@ -12,7 +12,7 @@ export interface Platform {
 const usePlatforms = () => {
   const fetchPlatforms = async () =>
     apiClient
-      .get<FetchResponse<Platform>>("/platforms")
+      .get<FetchResponse<Platform>>("/platforms/lists/parents")
       .then((res) => res.data.results);
 
   return useQuery<Platform[], Error>({
