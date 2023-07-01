@@ -13,7 +13,7 @@ const useGenres = () => {
     queryKey: ["genres"],
     queryFn: client.getAll,
     staleTime: 24 * 60 * 60 * 1000, //24h
-    initialData: { count: genres.length, next: null, results: genres },
+    initialData: genres,
   });
 };
 
