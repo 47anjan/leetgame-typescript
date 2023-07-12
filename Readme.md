@@ -23,8 +23,8 @@ Welcome to the Video Game Discovery Web App! This project is a web application i
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/video-game-discovery-web-app.git`
-2. Navigate to the project directory: `cd video-game-discovery-web-app`
+1. Clone the repository: `git clone https://github.com/anjankarmakar10/leetgame-typescript.git`
+2. Navigate to the project directory: `cd leetgame-typescript`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
 
