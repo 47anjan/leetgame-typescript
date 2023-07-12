@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../pages/Layout";
 import HomePage from "../pages/HomePage";
-import GameDetailPage from "../pages/GameDetailPage";
 import ErrorPage from "../pages/ErrorPage";
+import { lazy, Suspense } from "react";
+
+const GameDetailPage = lazy(() => import("../pages/GameDetailPage"));
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,11 @@ const router = createBrowserRouter([
       },
       {
         path: "games/:slug",
-        element: <GameDetailPage />,
+        element: (
+          <Suspense fallback={<div>Lading...</div>}>
+            <GameDetailPage />
+          </Suspense>
+        ),
       },
     ],
   },
